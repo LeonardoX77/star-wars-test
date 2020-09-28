@@ -4,9 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 export const routes: Routes = [
   { path: '', redirectTo: 'starships' , pathMatch: 'full'},
   {
-      path: 'starships',
-      loadChildren: 'app/components/starships/starships.module#StarshipsRoutes',
-      canActivate: [AuthGuard]
+    path: 'starships', loadChildren: () => import('./components/starships/starships.module').then((m) => m.StarshipsModule),
+    // canActivate: [AuthGuard]
   },
   { path: '**', redirectTo: '' }
 ];
