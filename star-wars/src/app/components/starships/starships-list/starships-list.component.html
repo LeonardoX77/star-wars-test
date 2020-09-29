@@ -1,6 +1,9 @@
-<div class="ships">
-  <div class="row">
-      <starship ng-repeat="item in $ctrl.starships" starship="item" class="col-xs-6 col-sm-6 col-md-3"></starship>
+<div class="container">
+  <div class="ships col-sm-12">
+    <div class="row">
+      <h1>Ships</h1>
+      <starship *ngFor="let starShip of starShips$ | async" [starship]="starShip" class="col-xs-6 col-sm-6 col-md-3"></starship>
+    </div>
   </div>
+  <button ng-click="$ctrl.fetchNextPage()" class="btn btn-primary">Más datos</button>
 </div>
-<button ng-click="$ctrl.fetchNextPage()" class="btn btn-primary">Más datos</button>

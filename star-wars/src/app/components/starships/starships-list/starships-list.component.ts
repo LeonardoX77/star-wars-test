@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StarShipsService } from '../starships.service';
 
 @Component({
   selector: 'app-starships-list',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./starships-list.component.scss']
 })
 export class StarShipListComponent {
-  title = 'star-wars';
+  starShips$ = this.starShipsService.getStarships();
+
+  constructor(private starShipsService: StarShipsService) {
+
+  }
 }
