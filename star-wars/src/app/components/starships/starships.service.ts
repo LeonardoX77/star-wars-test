@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { HttpService } from "../../services/http.service";
 import { environment } from "../../../environments/environment";
 import { Observable, of } from "rxjs";
 import { StarShip } from "../../models/starship";
+import { HttpService } from "../../shared/services/http.service";
 
 @Injectable()
 export class StarShipsService {
