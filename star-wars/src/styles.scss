@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-display: swap;
+  font-family: 'BasisGrotesque-Bold-Pro';
+  src: url('./fonts/BasisGrotesque-Bold-Pro.ttf') format('truetype')
+}
+
+body {
+  font-family: BasisGrotesque-Regular-Pro,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+h1, .h1 {
+  font-size: 36px;
+}
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 992px) {
+  .container {
+      width: 750px;
+  }
+}
+
+.btn-primary:focus, .btn-primary.focus, .btn-primary:hover, .btn-primary:active, .btn-primary.active {
+  color: #fff;
+  background-color: #ceba97;
+  border-color: #ceba97;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #b99d6b;
+  border-color: #b99d6b;
+}

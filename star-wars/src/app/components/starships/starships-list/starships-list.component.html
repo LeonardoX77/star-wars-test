@@ -4,6 +4,6 @@
     <div class="row">
       <starship *ngFor="let starShip of starShips$ | async" [starship]="starShip" class="col-xs-6 col-sm-6 col-md-3"></starship>
     </div>
+    <button ng-click="$ctrl.fetchNextPage()" class="btn btn-primary">Más datos</button>
   </div>
-  <button ng-click="$ctrl.fetchNextPage()" class="btn btn-primary">Más datos</button>
 </div>
