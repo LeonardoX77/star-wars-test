@@ -43,21 +43,8 @@ export class HttpService {
     private getHeaders(action: string = null, isJson: boolean = true) {
         let headers = new HttpHeaders();
 
-        // headers = headers.set('authority', 'swapi.dev');
-        // headers = headers.set('method', 'GET');
-        // headers = headers.set('path', '/api/starships/');
-        // headers = headers.set('scheme', 'https');
-
-        // headers = headers.set('Access-Control-Allow-Headers', '*');
-        // // headers = headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-id, Content-Length, X-Requested-With');
-        // headers = headers.set('Access-Control-Allow-Credentials', 'true');
-        // headers = headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-
-        headers = headers.set('Access-Control-Allow-Origin', '*');
-        headers = headers.set('Accept', 'application/json');
-        headers = headers.set('Cache-Control', 'no-cache');
-        headers = headers.set('Pragma', 'no-cache'); // For internet explorer/older versions of IIS
-        headers = headers.set('Authorization', 'none');
+        headers = headers.set('Accept', 'application/json, text/plain, */*');
+        headers = headers.set('authorization', 'none');
 
         if (action === 'post' || action === 'put') {
             headers = headers.set('Content-Type', isJson ? 'application/json' : 'application/x-www-form-urlencoded');
