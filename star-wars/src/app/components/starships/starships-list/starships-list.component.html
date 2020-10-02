@@ -1,9 +1,11 @@
 <div class="container">
   <div class="ships col-sm-12">
     <h1>Ships</h1>
-    <div class="row">
-      <starship *ngFor="let starShip of starShips$ | async" [starship]="starShip" class="col-xs-6 col-sm-6 col-md-3"></starship>
+    <div *ngIf="starShipsService.starShipsResultAll$ | async as products">
+      <div class="row">
+        <starship *ngFor="let starShip of products.results" [starship]="starShip" class="col-xs-6 col-sm-6 col-md-3"></starship>
+      </div>
+      <button [hidden]="!products.next" (click)="fetchNextPage(products.next)" class="btn btn-primary">Más datos</button>
     </div>
-    <button ng-click="$ctrl.fetchNextPage()" class="btn btn-primary">Más datos</button>
   </div>
 </div>

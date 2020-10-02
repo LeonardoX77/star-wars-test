@@ -7,9 +7,12 @@ import { StarShipsService } from '../starships.service';
   styleUrls: ['./starships-list.component.scss']
 })
 export class StarShipListComponent {
-  starShips$ = this.starShipsService.getStarships();
 
-  constructor(private starShipsService: StarShipsService) {
+  constructor(public starShipsService: StarShipsService) {
 
+  }
+
+  fetchNextPage(nextUrl: string) {
+    this.starShipsService.starShipsNextPageSubject.next(nextUrl);
   }
 }
