@@ -1,7 +1,13 @@
-.ship .card-body img {
-  max-width: 100%;
-  object-fit: cover;
+.ship {
+  min-height: 180px;
+  margin-bottom: 20px;
+
+  .card-body img {
+    max-width: 100%;
+    object-fit: cover;
+  }
 }
+
 
 .card-title {
   margin-top: 0;
