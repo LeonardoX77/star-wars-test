@@ -2,11 +2,13 @@ import { Injectable } from "@angular/core";
 import { environment } from "../../../environments/environment";
 import { Observable, BehaviorSubject } from "rxjs";
 import { StarShip } from "../../models/starship";
-import { map, concatMap, scan } from 'rxjs/operators';
+import { map, concatMap, scan, shareReplay } from 'rxjs/operators';
 import { StarShipResult } from "../../models/starship-result";
 import { HttpClient } from "@angular/common/http";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class StarShipsService {
 
   /**
@@ -38,6 +40,7 @@ export class StarShipsService {
              })
             ), [])
         } as StarShipResult)),
+      shareReplay(1));
 
   constructor(
     private http: HttpClient) {
