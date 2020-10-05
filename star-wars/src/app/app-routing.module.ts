@@ -7,6 +7,10 @@ export const routes: Routes = [
     path: 'starships', loadChildren: () => import('./modules/starships/starships.module').then((m) => m.StarshipsModule),
     // canActivate: [AuthGuard]
   },
+  {
+    path: 'starship', loadChildren: () => import('./modules/starhip-details/starhip-details.module').then((m) => m.StarshipDetailsModule),
+    // canActivate: [AuthGuard]
+  },
   { path: '**', redirectTo: '' }
 ];
 

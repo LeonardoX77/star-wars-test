@@ -1,9 +1,11 @@
-<div class="ship card">
-  <div class="card-header">
-      <h3 class="card-title">{{ starship.name }}</h3>
+<a [routerLink]="['/starship/' + starship.id]">
+  <div class="ship card">
+    <div class="card-header">
+        <h3 class="card-title">{{ starship.name }}</h3>
+    </div>
+    <div class="card-body">
+        <img src="https://starwars-visualguide.com/assets/img/starships/{{starship.id}}.jpg"
+          (error)="handleImgBrokenLink($event)">
+    </div>
   </div>
-  <div class="card-body">
-      <img src="https://starwars-visualguide.com/assets/img/starships/{{shipId}}.jpg"
-        (error)="handleImgBrokenLink($event)">
-  </div>
-</div>
+</a>

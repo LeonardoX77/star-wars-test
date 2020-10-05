@@ -26,16 +26,28 @@ export class StarShipsService {
       scan((ssresultacc: StarShipResult[], ssresult: StarShipResult) => (Array.isArray(ssresultacc) ? ssresultacc.concat(ssresult) : [ssresultacc, ssresult])),
       //convert the first request data into an array for simplicity
       map(ssresults => Array.isArray(ssresults) ? ssresults : [ssresults]),
-      //create a result with the next url page and an array of all request elelemnts
+      //create a result with the next url page and an array of all accumulated elelments
       map((ssresults: StarShipResult[]) => (
         {
           next: (ssresults) ? ssresults[ssresults.length - 1].next : '',
-          results: ssresults.reduce((ssrs: StarShip[], ssr: StarShipResult) => ssrs.concat(ssr.results), [])
-        } as StarShipResult)
-      ));
+          results: ssresults.reduce((ssrs: StarShip[], ssr: StarShipResult) => ssrs.concat(
+            //return the starships array with each starship id
+            ssr.results.map(m => {
+              m.id = this.getStarshipId(m);
+              return m;
+             })
+            ), [])
+        } as StarShipResult)),
 
   constructor(
     private http: HttpClient) {
-
   }
+
+  getStarshipId(starship: StarShip): string {
+    var url = starship.url;
+    return url.split("/").filter(function (item) {
+        return item !== "";
+    }).slice(-1)[0];
+  }
+
 }

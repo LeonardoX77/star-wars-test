@@ -17,4 +17,7 @@ export interface StarShip {
   pilots: string[];
   starship_class: string;
   url: string
+
+  //Only Frontend
+  id: string;
 }

@@ -7,18 +7,6 @@ import { ImageBase } from '../../../shared/base/image-base';
   templateUrl: './starship.component.html',
   styleUrls: ['./starship.component.scss']
 })
-export class StarShipComponent extends ImageBase implements OnInit {
+export class StarShipComponent extends ImageBase {
   @Input() starship: StarShip
-  shipId: string;
-
-  ngOnInit(): void {
-    this.getStarshipId();
-  }
-
-  getStarshipId() {
-    var url = this.starship.url;
-    this.shipId = url.split("/").filter(function (item) {
-        return item !== "";
-    }).slice(-1)[0];
-  }
 }
