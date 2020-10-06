@@ -1,4 +1,4 @@
-export class ImageBase {
+export class ImageHelper {
 
   constructor() { }
 
