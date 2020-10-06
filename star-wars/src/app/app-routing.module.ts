@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'starships' , pathMatch: 'full'},
   {
     path: 'starships', loadChildren: () => import('./modules/starships/starships.module').then((m) => m.StarshipsModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'starship', loadChildren: () => import('./modules/starhip-details/starhip-details.module').then((m) => m.StarshipDetailsModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'login', loadChildren: () => import('./modules/login/login.module').then((m) => m.LoginModule),
@@ -22,6 +23,7 @@ export const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
