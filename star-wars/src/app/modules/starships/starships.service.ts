@@ -20,6 +20,7 @@ export class StarShipsService {
   /**
    * Observable which contains the List of all starships
    */
+  //
   starShipsResultAll$: Observable<StarShipResult> =
     this.starShipsNextPage$.pipe(
       //pass url parameter to http service
